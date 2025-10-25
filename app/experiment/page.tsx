@@ -1,18 +1,35 @@
 "use client";
 
 import { FunnelDiagram } from "@/components/ui/funnel-diagram";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import NavbarWrapper from "@/components/navbar-wrapper";
 import { useEffect, useState, useRef } from "react";
 
 export default function ExperimentPage() {
   const [activeStage, setActiveStage] = useState<"top" | "middle" | "bottom" | null>(null);
-  const [isTrackingActive, setIsTrackingActive] = useState(false);
   const attractRef = useRef<HTMLDivElement>(null);
   const qualifyRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const convertRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-based patch progress - tracks scroll from when Track enters viewport to when it reaches center
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    container: containerRef,
+    offset: ["start end", "center center"], // Start when track enters from bottom, fully patched when track center reaches viewport center
+  });
+
+  // Transform scroll progress (0-1) to patch progress (0-1)
+  const patchProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  // Debug: log scroll progress
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      console.log("Scroll progress:", latest);
+    });
+    return unsubscribe;
+  }, [scrollYProgress]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,20 +48,13 @@ export default function ExperimentPage() {
 
       const viewportCenter = window.innerHeight / 2;
 
-      // Check if tracking section has been reached or passed
-      if (trackRect.top <= viewportCenter) {
-        setIsTrackingActive(true);
-      } else {
-        setIsTrackingActive(false);
-      }
-
       // Check which section is in the center of the viewport
       if (attractRect.top <= viewportCenter && attractRect.bottom >= viewportCenter) {
         setActiveStage("top");
       } else if (qualifyRect.top <= viewportCenter && qualifyRect.bottom >= viewportCenter) {
         setActiveStage("middle");
       } else if (trackRect.top <= viewportCenter && trackRect.bottom >= viewportCenter) {
-        setActiveStage("bottom");
+        setActiveStage("middle");
       } else if (convertRect.top <= viewportCenter && convertRect.bottom >= viewportCenter) {
         setActiveStage("bottom");
       } else {
@@ -63,11 +73,11 @@ export default function ExperimentPage() {
   return (
     <div ref={containerRef} className="relative h-screen overflow-y-scroll scrollbar-hide">
       <NavbarWrapper />
-      <main className="px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <main className="px-4">
+        <div className="mx-[15%]">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Left Column - Scrollable Use Cases */}
-            <div>
+            <div className="lg:col-span-2">
               {/* Use Case 1: Attract */}
               <motion.div
                 ref={attractRef}
@@ -315,14 +325,27 @@ export default function ExperimentPage() {
             </div>
 
             {/* Right Column - Fixed Funnel */}
-            <div className="hidden lg:flex h-screen items-center justify-center sticky top-0">
+            <div className="hidden lg:flex lg:col-span-3 h-screen items-center justify-center sticky top-0">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl border border-purple-500/10 p-8"
+                className="relative flex items-center justify-center rounded-2xl overflow-hidden"
               >
-                <FunnelDiagram activeStage={activeStage} isTrackingActive={isTrackingActive} />
+                {/* Pixelated background layer */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/10 rounded-2xl"
+                     style={{
+                       backgroundImage: `
+                         repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 4px),
+                         repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 4px)
+                       `,
+                     }}
+                />
+
+                {/* Funnel content with pixelation effect */}
+                <div className="relative z-10 p-8">
+                  <FunnelDiagram activeStage={activeStage} patchProgress={patchProgress} />
+                </div>
               </motion.div>
             </div>
           </div>
@@ -331,7 +354,7 @@ export default function ExperimentPage() {
         {/* Mobile: Show funnel separately */}
         <div className="lg:hidden mt-16">
           <div className="flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl border border-purple-500/10 p-8">
-            <FunnelDiagram activeStage={activeStage} isTrackingActive={isTrackingActive} />
+            <FunnelDiagram activeStage={activeStage} patchProgress={patchProgress} />
           </div>
         </div>
       </main>
