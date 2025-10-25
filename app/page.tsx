@@ -1,10 +1,11 @@
 import { Cover } from "@/components/ui/cover";
-import FeaturesSectionDemo from "@/components/features-section-demo-3";
 import NavbarWrapper from "@/components/navbar-wrapper";
 import GoogleGeminiDemo from "@/components/google-gemini-demo";
 import { NeonButton } from "@/components/ui/neon-button";
 import { TrustBanner } from "@/components/ui/trust-badges";
-import TestimonialsParallax from "@/components/testimonials-parallax";
+import FacebookTestimonials from "@/components/facebook-testimonials";
+import FunnelFeaturesSection from "@/components/funnel-features-section";
+import FeaturesSectionDemo3 from "@/components/features-section-demo-3";
 
 export default function Home() {
   return (
@@ -34,12 +35,16 @@ export default function Home() {
           <GoogleGeminiDemo />
         </section>
 
-        <section className="px-4" id="features">
-          <FeaturesSectionDemo />
+        <section>
+          <FacebookTestimonials />
         </section>
 
         <section>
-          <TestimonialsParallax />
+          <FunnelFeaturesSection />
+        </section>
+
+        <section className="py-20">
+          <FeaturesSectionDemo3 />
         </section>
       </main>
     </div>

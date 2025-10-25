@@ -11,24 +11,24 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 export default function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Track issues effectively",
+      title: "Start with AI",
       description:
-        "Track and manage your project issues with ease using our intuitive interface.",
+        "No more blank canvas. Let AI help you create your first funnel in seconds.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Capture pictures with AI",
+      title: "Or use our templates",
       description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+        "Choose from hundreds of proven templates designed to convert.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
-      title: "Watch our AI on YouTube",
+      title: "Test quickly",
       description:
-        "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+        "Run A/B tests effortlessly to find what converts best for your audience.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
@@ -36,7 +36,7 @@ export default function FeaturesSectionDemo() {
     {
       title: "Deploy in seconds",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
+        "With our blazing fast infrastructure, you can deploy your funnel in seconds.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -45,12 +45,11 @@ export default function FeaturesSectionDemo() {
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
       <div className="px-8">
         <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Packed with thousands of features
+          Launch campaigns faster
         </h4>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
+          From AI-powered funnel creation to proven templates, LeadsHook has everything you need to launch high-converting campaigns in minutes.
         </p>
       </div>
 
@@ -120,11 +119,11 @@ export const SkeletonOne = () => {
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
           <img
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
-            alt="dashboard interface"
+            src="https://cdn.dribbble.com/userupload/14208829/file/original-0bc78b04e0c761f7855d4b6ed1da8a16.png?resize=1200x900&vertical=center"
+            alt="chat interface"
             width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
+            height={450}
+            className="h-full w-full aspect-video object-cover object-left-top rounded-sm"
           />
         </div>
       </div>
@@ -137,25 +136,19 @@ export const SkeletonOne = () => {
 
 export const SkeletonThree = () => {
   return (
-    <a
-      href="https://www.youtube.com/watch?v=RPa3_AD1_Vs"
-      target="__blank"
-      className="relative flex gap-10  h-full group/image"
-    >
-      <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-          {/* TODO */}
-          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
+    <div className="relative flex gap-10 h-full group/image">
+      <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
+        <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
           <img
-            src="https://assets.aceternity.com/fireship.jpg"
-            alt="header"
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
+            alt="A/B testing analytics"
             width={800}
             height={800}
-            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
+            className="h-full w-full aspect-square object-cover object-center rounded-sm group-hover/image:scale-105 transition-all duration-200"
           />
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
