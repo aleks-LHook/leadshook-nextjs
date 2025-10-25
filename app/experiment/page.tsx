@@ -74,10 +74,10 @@ export default function ExperimentPage() {
     <div ref={containerRef} className="relative h-screen overflow-y-scroll scrollbar-hide">
       <NavbarWrapper />
       <main className="px-4">
-        <div className="mx-[15%]">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            {/* Left Column - Scrollable Use Cases */}
-            <div className="lg:col-span-2">
+        <div className="mx-auto px-8 max-w-[90vw]">
+          <div className="grid grid-cols-1 lg:grid-cols-10 gap-12">
+            {/* Left Column - Scrollable Use Cases (45%) */}
+            <div className="lg:col-span-5">
               {/* Use Case 1: Attract */}
               <motion.div
                 ref={attractRef}
@@ -216,34 +216,34 @@ export default function ExperimentPage() {
                 </div>
 
                 <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                  Built-in Server-Side Tracking & Deduplication
+                  Patch Your Leaky Funnel with Server-Side Tracking
                 </h2>
 
                 <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
                   <p>
-                    Accurate attribution is the foundation of profitable marketing. With iOS 14+
-                    limitations and ad blockers everywhere, client-side tracking alone leaves you
-                    flying blind.
+                    See those holes bleeding leads? That's what happens without proper tracking.
+                    iOS 14+ privacy changes, ad blockers, and browser restrictions punch holes in
+                    your funnel—you're losing attribution on 30-40% of your conversions.
                   </p>
 
                   <p>
-                    Our built-in server-side tracking combines client-side and server-side data
-                    automatically, with intelligent deduplication that happens with just a few
-                    clicks. No complex setup, no developers needed—just accurate data you can
-                    actually trust to make decisions.
+                    Our built-in server-side tracking patches every leak automatically. By combining
+                    client-side and server-side data with intelligent deduplication, you capture the
+                    full picture. No complex setup, no developers needed—just watch your funnel seal
+                    up and your attribution become bulletproof.
                   </p>
 
                   <div className="mt-8 space-y-4">
                     <h3 className="text-xl font-semibold text-white">
-                      Key Features:
+                      How We Patch The Leaks:
                     </h3>
                     <ul className="space-y-3">
                       {[
-                        "Hybrid tracking: Client-side + Server-side in one unified system",
-                        "Automatic deduplication prevents double-counting conversions",
-                        "Works seamlessly with Facebook, Google, TikTok, and more",
-                        "Cookie-less tracking options for privacy compliance",
-                        "Real-time attribution reports across all touchpoints",
+                        "Hybrid tracking catches conversions client-side tracking misses",
+                        "Automatic deduplication patches attribution gaps without double-counting",
+                        "Works seamlessly with Facebook, Google, TikTok to seal all platforms",
+                        "Cookie-less tracking fills holes created by privacy restrictions",
+                        "Real-time reports show exactly where leaks were and how they're fixed",
                       ].map((feature, index) => (
                         <motion.li
                           key={index}
@@ -324,13 +324,13 @@ export default function ExperimentPage() {
               </motion.div>
             </div>
 
-            {/* Right Column - Fixed Funnel */}
-            <div className="hidden lg:flex lg:col-span-3 h-screen items-center justify-center sticky top-0">
+            {/* Right Column - Fixed Funnel (55%) */}
+            <div className="hidden lg:flex lg:col-span-5 h-screen items-center sticky top-0">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative flex items-center justify-center rounded-2xl overflow-hidden"
+                className="relative flex items-center justify-center rounded-2xl overflow-hidden w-full"
               >
                 {/* Pixelated background layer */}
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/10 rounded-2xl"
@@ -343,7 +343,7 @@ export default function ExperimentPage() {
                 />
 
                 {/* Funnel content with pixelation effect */}
-                <div className="relative z-10 p-8">
+                <div className="relative z-10 p-8 w-full">
                   <FunnelDiagram activeStage={activeStage} patchProgress={patchProgress} />
                 </div>
               </motion.div>

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, MotionValue, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 interface FunnelDiagramProps {
   className?: string;
@@ -141,8 +141,21 @@ const LeakingParticle = ({
 
   const isMotionValue = patchProgress && typeof patchProgress === 'object' && 'get' in patchProgress;
 
-  // Create motion values for position based on patch progress
-  // As progress goes from 0 to 1, particles should move from randomOffset back to 0
+  // Use state to track if we should be leaking (when progress is very low)
+  const [isLeaking, setIsLeaking] = React.useState(true);
+
+  React.useEffect(() => {
+    if (isMotionValue) {
+      const unsubscribe = (patchProgress as MotionValue<number>).on("change", (latest) => {
+        setIsLeaking(latest < 0.01);
+      });
+      return unsubscribe;
+    } else {
+      setIsLeaking((patchProgress as number) < 0.01);
+    }
+  }, [patchProgress, isMotionValue]);
+
+  // Create transforms for when particles need to return
   const particleX = isMotionValue
     ? useTransform(patchProgress as MotionValue<number>, [0, 1], [randomOffset.x, 0])
     : randomOffset.x * (1 - (patchProgress as number));
@@ -152,9 +165,39 @@ const LeakingParticle = ({
     : randomOffset.y * (1 - (patchProgress as number));
 
   const particleOpacity = isMotionValue
-    ? useTransform(patchProgress as MotionValue<number>, [0, 0.9, 1], [0.8, 0.3, 0])
-    : (patchProgress as number) < 0.9 ? 0.8 * (1 - (patchProgress as number)) : 0;
+    ? useTransform(patchProgress as MotionValue<number>, [0, 0.9, 1], [1, 0.3, 0])
+    : (patchProgress as number) < 0.9 ? 1 - (patchProgress as number) : 0;
 
+  if (isLeaking) {
+    // Actively leaking - loop animation
+    return (
+      <motion.div
+        className="absolute w-1.5 h-1.5 bg-red-400/70 rounded-sm"
+        style={{
+          left: holeX,
+          top: holeY,
+          boxShadow: "0 0 4px rgba(248,113,113,0.8)",
+          imageRendering: "pixelated",
+        }}
+        initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
+        animate={{
+          x: randomOffset.x,
+          y: randomOffset.y,
+          opacity: [0, 0.8, 0.6, 0],
+          scale: [0, 1, 0.9, 0.7],
+        }}
+        transition={{
+          duration: randomOffset.duration,
+          delay: randomOffset.delay,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeOut",
+        }}
+      />
+    );
+  }
+
+  // Being patched - return to origin
   return (
     <motion.div
       className="absolute w-1.5 h-1.5 bg-red-400/70 rounded-sm"
@@ -167,7 +210,6 @@ const LeakingParticle = ({
         boxShadow: "0 0 4px rgba(248,113,113,0.8)",
         imageRendering: "pixelated",
       }}
-      initial={false}
       transition={{
         duration: 0,
         ease: "linear",
@@ -206,7 +248,7 @@ export function FunnelDiagram({ className, activeStage = null, patchProgress = 0
       id: "top" as const,
       label: "TOP OF FUNNEL",
       color: "from-indigo-400 to-blue-400",
-      width: "w-[550px]",
+      width: "w-[760px]",
       height: "h-40",
       delay: 0,
     },
@@ -214,7 +256,7 @@ export function FunnelDiagram({ className, activeStage = null, patchProgress = 0
       id: "middle" as const,
       label: "MIDDLE OF FUNNEL",
       color: "from-cyan-400 to-teal-400",
-      width: "w-[440px]",
+      width: "w-[560px]",
       height: "h-40",
       delay: 0.2,
     },
@@ -222,7 +264,7 @@ export function FunnelDiagram({ className, activeStage = null, patchProgress = 0
       id: "bottom" as const,
       label: "BOTTOM OF FUNNEL",
       color: "from-emerald-400 to-green-400",
-      width: "w-[320px]",
+      width: "w-[400px]",
       height: "h-40",
       delay: 0.4,
     },
