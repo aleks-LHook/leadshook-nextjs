@@ -1,0 +1,25 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Next.js Runtime for Netlify
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  # Disable Next.js telemetry
+  NEXT_TELEMETRY_DISABLED = "1"
+  # Node.js version
+  NODE_VERSION = "20"
+  # Enable build cache
+  NPM_FLAGS = "--prefer-offline --no-audit"
+
+# Cache Next.js build for faster subsequent builds
+[[plugins]]
+  package = "netlify-plugin-cache"
+
+  [plugins.inputs]
+    paths = [
+      ".next/cache",
+      "node_modules/.cache"
+    ]
