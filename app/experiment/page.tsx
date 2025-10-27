@@ -3,6 +3,7 @@
 import { FunnelDiagram } from "@/components/ui/funnel-diagram";
 import { motion, useScroll, useTransform } from "motion/react";
 import NavbarWrapper from "@/components/navbar-wrapper";
+import AnalyticsChart from "@/components/analytics-chart";
 import { useEffect, useState, useRef } from "react";
 
 export default function ExperimentPage() {
@@ -356,6 +357,11 @@ export default function ExperimentPage() {
           <div className="flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl border border-purple-500/10 p-8">
             <FunnelDiagram activeStage={activeStage} patchProgress={patchProgress} />
           </div>
+        </div>
+
+        {/* Analytics Chart Section */}
+        <div className="mt-32 px-8">
+          <AnalyticsChart />
         </div>
       </main>
     </div>
