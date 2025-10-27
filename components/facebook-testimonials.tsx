@@ -94,15 +94,15 @@ export const InfiniteMovingImages = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[500px] max-w-full shrink-0 rounded-xl border border-zinc-700 bg-zinc-900/50 overflow-hidden hover:scale-105 transition-transform duration-300"
+            className="relative w-[500px] h-[150px] max-w-full shrink-0 rounded-xl border border-zinc-700 bg-zinc-900/50 overflow-hidden hover:scale-105 transition-transform duration-300"
             key={`${item.src}-${idx}`}
           >
             <Image
               src={item.src}
               alt={item.alt}
               width={500}
-              height={375}
-              className="w-full h-auto object-cover"
+              height={150}
+              className="w-full h-full object-contain"
             />
           </li>
         ))}
