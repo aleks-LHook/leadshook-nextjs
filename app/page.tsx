@@ -6,10 +6,12 @@ import FeaturesSectionDemo3 from "@/components/features-section-demo-3";
 import BotTrafficSection from "@/components/bot-traffic-section";
 import { GlowingGridSection } from "@/components/glowing-grid-section";
 import { HeroSection } from "@/components/hero-section";
+import { TopBar } from "@/components/ui/top-bar";
 
 export default function Home() {
   return (
     <div className="relative">
+      <TopBar />
       <NavbarWrapper />
       <main className="flex min-h-screen flex-col">
         <HeroSection />

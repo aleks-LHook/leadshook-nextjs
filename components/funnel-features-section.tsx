@@ -55,14 +55,14 @@ export default function FunnelFeaturesSection() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative bg-black py-20">
+    <div ref={sectionRef} className="relative bg-white dark:bg-black py-20">
       <div className="mx-auto px-8 max-w-[90vw]">
         {/* Section Title */}
         <div className="text-center pb-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#262C5B] dark:text-white mb-4">
             How to Use LeadsHook
           </h2>
-          <p className="text-xl md:text-2xl text-neutral-400 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
             Four powerful use cases to attract, qualify, track, and convert your leads
           </p>
         </div>
@@ -80,16 +80,16 @@ export default function FunnelFeaturesSection() {
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-full w-fit">
-                <span className="text-cyan-400 font-semibold text-sm">
+                <span className="text-cyan-600 dark:text-cyan-400 font-semibold text-sm">
                   Use Case: Attract
                 </span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-[#262C5B] dark:text-white leading-tight">
                 Build Landing Pages That Convert
               </h3>
 
-              <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
+              <div className="space-y-4 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                 <p>
                   At the top of your funnel, you need to capture attention and
                   generate interest. That's where our intuitive page builder
@@ -104,7 +104,7 @@ export default function FunnelFeaturesSection() {
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  <h4 className="text-xl font-semibold text-white">
+                  <h4 className="text-xl font-semibold text-[#262C5B] dark:text-white">
                     Key Features:
                   </h4>
                   <ul className="space-y-3">
@@ -123,8 +123,8 @@ export default function FunnelFeaturesSection() {
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         className="flex items-start gap-3"
                       >
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
-                        <span className="text-neutral-300">{feature}</span>
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-600 dark:bg-cyan-400 flex-shrink-0" />
+                        <span className="text-neutral-700 dark:text-neutral-300">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -142,16 +142,16 @@ export default function FunnelFeaturesSection() {
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full w-fit">
-                <span className="text-purple-400 font-semibold text-sm">
+                <span className="text-purple-600 dark:text-purple-400 font-semibold text-sm">
                   Use Case: Qualify
                 </span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-[#262C5B] dark:text-white leading-tight">
                 Intelligent Quiz Builder for Lead Qualification
               </h3>
 
-              <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
+              <div className="space-y-4 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                 <p>
                   In the middle of your funnel, you need to understand who your
                   leads are and what they need. Our quiz builder goes beyond
@@ -166,7 +166,7 @@ export default function FunnelFeaturesSection() {
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  <h4 className="text-xl font-semibold text-white">
+                  <h4 className="text-xl font-semibold text-[#262C5B] dark:text-white">
                     Key Features:
                   </h4>
                   <ul className="space-y-3">
@@ -185,8 +185,8 @@ export default function FunnelFeaturesSection() {
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         className="flex items-start gap-3"
                       >
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />
-                        <span className="text-neutral-300">{feature}</span>
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400 flex-shrink-0" />
+                        <span className="text-neutral-700 dark:text-neutral-300">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -204,16 +204,16 @@ export default function FunnelFeaturesSection() {
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-teal-500/10 to-emerald-500/10 border border-teal-500/20 rounded-full w-fit">
-                <span className="text-teal-400 font-semibold text-sm">
+                <span className="text-teal-600 dark:text-teal-400 font-semibold text-sm">
                   Use Case: Track
                 </span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-[#262C5B] dark:text-white leading-tight">
                 Patch Your Leaky Funnel with Server-Side Tracking
               </h3>
 
-              <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
+              <div className="space-y-4 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                 <p>
                   See those holes bleeding leads? That's what happens without proper tracking.
                   iOS 14+ privacy changes, ad blockers, and browser restrictions punch holes in
@@ -228,7 +228,7 @@ export default function FunnelFeaturesSection() {
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  <h4 className="text-xl font-semibold text-white">
+                  <h4 className="text-xl font-semibold text-[#262C5B] dark:text-white">
                     How We Patch The Leaks:
                   </h4>
                   <ul className="space-y-3">
@@ -247,8 +247,8 @@ export default function FunnelFeaturesSection() {
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         className="flex items-start gap-3"
                       >
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0" />
-                        <span className="text-neutral-300">{feature}</span>
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 flex-shrink-0" />
+                        <span className="text-neutral-700 dark:text-neutral-300">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -266,16 +266,16 @@ export default function FunnelFeaturesSection() {
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
               <div className="inline-block px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/20 rounded-full w-fit">
-                <span className="text-emerald-400 font-semibold text-sm">
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
                   Use Case: Convert
                 </span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h3 className="text-4xl md:text-5xl font-bold text-[#262C5B] dark:text-white leading-tight">
                 Personalization Engine with Decision Trees
               </h3>
 
-              <div className="space-y-4 text-neutral-300 text-lg leading-relaxed">
+              <div className="space-y-4 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed">
                 <p>
                   At the bottom of your funnel, generic personalization doesn't cut it anymore.
                   In the era of LLMs, "Hey {"{"}first_name{"}"}" feels robotic and impersonal.
@@ -289,7 +289,7 @@ export default function FunnelFeaturesSection() {
                 </p>
 
                 <div className="mt-8 space-y-4">
-                  <h4 className="text-xl font-semibold text-white">
+                  <h4 className="text-xl font-semibold text-[#262C5B] dark:text-white">
                     Key Features:
                   </h4>
                   <ul className="space-y-3">
@@ -308,8 +308,8 @@ export default function FunnelFeaturesSection() {
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         className="flex items-start gap-3"
                       >
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                        <span className="text-neutral-300">{feature}</span>
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 flex-shrink-0" />
+                        <span className="text-neutral-700 dark:text-neutral-300">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>

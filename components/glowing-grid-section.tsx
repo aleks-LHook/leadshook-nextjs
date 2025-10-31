@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export function GlowingGridSection() {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-white dark:bg-black">
       <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -16,10 +16,10 @@ export function GlowingGridSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#262C5B] dark:text-white mb-6">
             Leave-No-Issue-Behind Support
           </h2>
-          <p className="text-lg md:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-4xl mx-auto leading-relaxed">
             We're obsessive about ensuring no issue is left unanswered and answered completely and thoroughly the first time, so we're not wasting valuable time going back and forth for a few days before finally resolving the issue.
           </p>
         </motion.div>

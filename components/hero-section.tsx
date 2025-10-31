@@ -3,6 +3,7 @@
 import { Cover } from "@/components/ui/cover";
 import { NeonButton } from "@/components/ui/neon-button";
 import { TrustBanner } from "@/components/ui/trust-badges";
+import { PlaceholdersAndVanishInputDemo } from "@/components/placeholders-vanish-input-demo";
 import { motion } from "motion/react";
 
 export function HeroSection() {
@@ -22,11 +23,10 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-5xl md:text-8xl font-bold text-center max-w-7xl mx-auto"
+        className="text-5xl md:text-8xl font-bold text-center max-w-7xl mx-auto text-[#262C5B] dark:text-white"
         style={{ lineHeight: '1.2' }}
       >
-        Build unhackable funnels<br className="mb-2" />
-        at <Cover>warp speed</Cover>
+        Build marketing at <Cover>warp speed</Cover>
       </motion.h1>
 
       {/* Subheading with fade-in */}
@@ -36,14 +36,24 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="mt-12 text-xl md:text-3xl text-center text-neutral-600 dark:text-neutral-400 max-w-5xl mx-auto leading-relaxed"
       >
-        Generate higher quality leads at a lower cost than your competitors… Indefinitely
+        Generate leads by chatting with AI.
       </motion.p>
+
+      {/* Input with vanishing animation */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="mt-12 w-full"
+      >
+        <PlaceholdersAndVanishInputDemo />
+      </motion.div>
 
       {/* CTA buttons with fade-in and hover effects */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
         className="mt-12 flex flex-col sm:flex-row gap-8 items-center justify-center"
       >
         <motion.div

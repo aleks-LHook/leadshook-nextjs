@@ -68,7 +68,7 @@ export default function BotTrafficSection() {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-white dark:bg-black">
       <div className="w-full max-w-7xl mx-auto">
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -80,10 +80,10 @@ export default function BotTrafficSection() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#262C5B] dark:text-white leading-tight">
               Close The Door On 'Costly' Fake Traffic
             </h2>
-            <div className="space-y-4 text-base md:text-lg text-neutral-300 leading-relaxed">
+            <div className="space-y-4 text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
               <p>
                 With A.I and black hat tactics are on the rise, knowing exactly where your traffic is coming from is as vital as ever.
               </p>
@@ -204,21 +204,21 @@ export default function BotTrafficSection() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="absolute z-50 bg-neutral-900 border border-neutral-700 rounded-lg p-3 shadow-xl pointer-events-none"
+                className="absolute z-50 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg p-3 shadow-xl pointer-events-none"
                 style={{
                   left: `${tooltipPos.x}px`,
                   top: `${tooltipPos.y - 80}px`,
                   transform: 'translateX(-50%)',
                 }}
               >
-                <p className="text-xs text-neutral-400 mb-1">{chartData[hoveredPoint].month}</p>
+                <p className="text-xs text-neutral-600 dark:text-neutral-400 mb-1">{chartData[hoveredPoint].month}</p>
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-2 h-2 rounded-full bg-red-400" />
-                  <span className="text-sm text-white font-medium">
+                  <span className="text-sm text-neutral-900 dark:text-white font-medium">
                     Bad Bot Traffic: {chartData[hoveredPoint].primary}%
                   </span>
                 </div>
-                <p className="text-xs text-neutral-500 mt-1">
+                <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-1">
                   {hoveredPoint === 0 ? 'Baseline year' :
                    `+${(chartData[hoveredPoint].primary - chartData[0].primary).toFixed(1)}% since 2015`}
                 </p>

@@ -94,7 +94,7 @@ export const InfiniteMovingImages = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[500px] h-[150px] max-w-full shrink-0 rounded-xl border border-zinc-700 bg-zinc-900/50 overflow-hidden hover:scale-105 transition-transform duration-300"
+            className="relative w-[500px] h-[150px] max-w-full shrink-0 rounded-xl border border-neutral-300 dark:border-zinc-700 bg-neutral-100/50 dark:bg-zinc-900/50 overflow-hidden hover:scale-105 transition-transform duration-300"
             key={`${item.src}-${idx}`}
           >
             <Image
@@ -136,12 +136,12 @@ export default function FacebookTestimonials() {
   ];
 
   return (
-    <div className="w-full py-20 bg-black">
+    <div className="w-full py-20 bg-neutral-50 dark:bg-black">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-4">
+        <h2 className="text-4xl md:text-6xl font-bold text-center text-[#262C5B] dark:text-white mb-4">
           Loved by Marketers
         </h2>
-        <p className="text-xl text-neutral-400 text-center mb-12">
+        <p className="text-xl text-neutral-600 dark:text-neutral-400 text-center mb-12">
           See what our customers are saying on Facebook
         </p>
       </div>

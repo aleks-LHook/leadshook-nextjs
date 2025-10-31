@@ -12,6 +12,7 @@ import {
   NavbarLogo,
   NavbarButton,
 } from "@/components/ui/resizable-navbar";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default function NavbarWrapper() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,7 @@ export default function NavbarWrapper() {
         <NavbarLogo visible={isScrolled} />
         <NavItems items={navItems} />
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <NavbarButton variant="secondary" href="#login">
             Login
           </NavbarButton>
@@ -53,10 +55,13 @@ export default function NavbarWrapper() {
       <MobileNav>
         <MobileNavHeader>
           <NavbarLogo visible={isScrolled} />
-          <MobileNavToggle
-            isOpen={isOpen}
-            onClick={() => setIsOpen(!isOpen)}
-          />
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <MobileNavToggle
+              isOpen={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          </div>
         </MobileNavHeader>
         <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
           {navItems.map((item, idx) => (
