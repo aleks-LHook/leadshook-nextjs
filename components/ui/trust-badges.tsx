@@ -84,31 +84,31 @@ export const TrustBanner = ({ className }: TrustBadgeProps) => {
       )}
     >
       <div className="relative w-full max-w-4xl">
-        {/* Glowing background effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#03e9f4]/0 via-[#03e9f4]/10 to-[#03e9f4]/0 blur-xl" />
+        {/* Glowing background effect - adapts to theme */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#03e9f4]/0 via-[#03e9f4]/5 dark:via-[#03e9f4]/10 to-[#03e9f4]/0 blur-xl" />
 
-        {/* Content */}
-        <div className="relative flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 px-6 py-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10">
+        {/* Content with theme-aware styling */}
+        <div className="relative flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 px-6 py-4 rounded-full bg-gradient-to-r from-cyan-50/80 via-white/90 to-cyan-50/80 dark:bg-white/5 backdrop-blur-md border border-cyan-200/60 dark:border-white/10 shadow-lg shadow-cyan-500/10 dark:shadow-none">
           <div className="flex items-center gap-2">
-            <svg className="w-5 h-5 text-[#03e9f4]" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-5 h-5 text-[#03e9f4] dark:text-[#03e9f4]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="text-sm md:text-base font-semibold text-white">
+            <span className="text-sm md:text-base font-semibold text-[#262C5B] dark:text-white">
               Enterprise Scalability:
             </span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm text-neutral-300">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
             <span className="flex items-center gap-1">
               <span className="font-bold text-[#03e9f4]">200K+</span>
               <span>Daily Leads</span>
             </span>
-            <span className="hidden md:inline text-neutral-600">•</span>
+            <span className="hidden md:inline text-neutral-400 dark:text-neutral-600">•</span>
             <span className="flex items-center gap-1">
               <span className="font-bold text-[#03e9f4]">$20M</span>
               <span>Monthly Ad Spend</span>
             </span>
-            <span className="hidden md:inline text-neutral-600">•</span>
-            <span className="text-neutral-400">From Individual Users</span>
+            <span className="hidden md:inline text-neutral-400 dark:text-neutral-600">•</span>
+            <span className="text-neutral-600 dark:text-neutral-400">From Individual Users</span>
           </div>
         </div>
       </div>

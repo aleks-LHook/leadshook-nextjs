@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion, MotionValue } from "motion/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const transition = {
   duration: 0,
@@ -29,7 +29,33 @@ export const GoogleGeminiEffect = ({
   const leftText = leftLabels || defaultLeftLabels;
   const rightText = rightLabels || defaultRightLabels;
 
-  const pathColors = ["#FFB7C5", "#FFDDB7", "#B1C5FF", "#4FABFF", "#076EFF"];
+  // Light theme: deeper, more saturated colors for visibility on white
+  // Dark theme: softer pastel colors for visibility on black
+  const pathColorsLight = ["#E91E63", "#FF9800", "#5C6BC0", "#2196F3", "#0D47A1"];
+  const pathColorsDark = ["#FFB7C5", "#FFDDB7", "#B1C5FF", "#4FABFF", "#076EFF"];
+
+  // Detect theme - check if dark class is on html element
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const pathColors = isDark ? pathColorsDark : pathColorsLight;
+
   return (
     <div className={cn("sticky top-80", className)}>
       <h2 className="text-lg md:text-7xl font-bold pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
@@ -40,8 +66,8 @@ export const GoogleGeminiEffect = ({
           `Scroll this component and see the bottom SVG come to life wow this
         works!`}
       </p>
-      <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
-        <button className="font-bold bg-white dark:bg-white rounded-full md:px-4 md:py-2 px-2 py-1 md:mt-24 mt-8 z-30 md:text-base text-black dark:text-black text-xs  w-fit mx-auto ">
+      <div className="w-full h-[890px] -top-60 md:-top-40 flex items-center justify-center bg-transparent absolute">
+        <button className="font-bold bg-[#262C5B] hover:bg-[#1a1f3d] dark:bg-white dark:hover:bg-neutral-100 rounded-full md:px-6 md:py-3 px-3 py-1.5 md:mt-24 mt-8 z-30 md:text-base text-white dark:text-black text-xs w-fit mx-auto transition-all duration-300 shadow-lg shadow-[#262C5B]/20 dark:shadow-white/20 hover:shadow-xl hover:shadow-[#262C5B]/30 dark:hover:shadow-white/30 hover:scale-105">
           leadshook.com
         </button>
       </div>

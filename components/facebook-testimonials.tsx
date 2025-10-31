@@ -94,7 +94,7 @@ export const InfiniteMovingImages = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[500px] h-[150px] max-w-full shrink-0 rounded-xl border border-neutral-300 dark:border-zinc-700 bg-neutral-100/50 dark:bg-zinc-900/50 overflow-hidden hover:scale-105 transition-transform duration-300"
+            className="relative w-[500px] h-[150px] max-w-full shrink-0 rounded-xl border border-neutral-200/60 dark:border-zinc-700 bg-white dark:bg-zinc-900/50 overflow-hidden hover:scale-105 transition-all duration-300 shadow-md shadow-neutral-200/50 dark:shadow-zinc-900/50 hover:shadow-xl hover:shadow-neutral-300/60 dark:hover:shadow-zinc-800/60 hover:border-neutral-300 dark:hover:border-zinc-600"
             key={`${item.src}-${idx}`}
           >
             <Image
@@ -136,27 +136,35 @@ export default function FacebookTestimonials() {
   ];
 
   return (
-    <div className="w-full py-20 bg-neutral-50 dark:bg-black">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl md:text-6xl font-bold text-center text-[#262C5B] dark:text-white mb-4">
-          Loved by Marketers
-        </h2>
-        <p className="text-xl text-neutral-600 dark:text-neutral-400 text-center mb-12">
-          See what our customers are saying on Facebook
-        </p>
-      </div>
+    <div className="relative w-full py-20 bg-gradient-to-b from-white via-neutral-50 to-white dark:from-black dark:via-neutral-950 dark:to-black overflow-hidden">
+      {/* Subtle pattern background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]" />
 
-      <div className="flex flex-col gap-4">
-        <InfiniteMovingImages
-          items={row1Images}
-          direction="left"
-          speed="slow"
-        />
-        <InfiniteMovingImages
-          items={row2Images}
-          direction="right"
-          speed="slow"
-        />
+      {/* Radial gradient overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(3,233,244,0.05),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(3,233,244,0.1),transparent_70%)]" />
+
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-[#262C5B] to-[#1a1f3d] dark:from-white dark:to-neutral-300 mb-4">
+            Loved by Marketers
+          </h2>
+          <p className="text-xl text-neutral-600 dark:text-neutral-400 text-center mb-12 max-w-2xl mx-auto">
+            See what our customers are saying on Facebook
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <InfiniteMovingImages
+            items={row1Images}
+            direction="left"
+            speed="slow"
+          />
+          <InfiniteMovingImages
+            items={row2Images}
+            direction="right"
+            speed="slow"
+          />
+        </div>
       </div>
     </div>
   );

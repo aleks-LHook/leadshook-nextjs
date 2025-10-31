@@ -55,11 +55,17 @@ export default function FunnelFeaturesSection() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative bg-white dark:bg-black py-20">
+    <div ref={sectionRef} className="relative bg-gradient-to-b from-white via-neutral-50/50 to-white dark:from-black dark:via-neutral-950/50 dark:to-black py-20">
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]" />
+
+      {/* Radial gradient accent */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(3,233,244,0.04),transparent_70%)] dark:bg-[radial-gradient(circle,rgba(3,233,244,0.08),transparent_70%)]" />
+
       <div className="mx-auto px-8 max-w-[90vw]">
         {/* Section Title */}
-        <div className="text-center pb-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#262C5B] dark:text-white mb-4">
+        <div className="relative z-10 text-center pb-8">
+          <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#262C5B] to-[#1a1f3d] dark:from-white dark:to-neutral-300 mb-4">
             How to Use LeadsHook
           </h2>
           <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
@@ -67,7 +73,7 @@ export default function FunnelFeaturesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-12 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-10 gap-12 relative z-10">
           {/* Left Column - Scrollable Use Cases */}
           <div className="lg:col-span-5">
             {/* Use Case 1: Attract */}
@@ -79,8 +85,8 @@ export default function FunnelFeaturesSection() {
               transition={{ duration: 0.6 }}
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-full w-fit">
-                <span className="text-cyan-600 dark:text-cyan-400 font-semibold text-sm">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-500/10 dark:to-blue-500/10 border border-cyan-200 dark:border-cyan-500/20 rounded-full w-fit shadow-sm shadow-cyan-200/50 dark:shadow-none">
+                <span className="text-cyan-700 dark:text-cyan-400 font-semibold text-sm">
                   Use Case: Attract
                 </span>
               </div>
@@ -141,8 +147,8 @@ export default function FunnelFeaturesSection() {
               transition={{ duration: 0.6 }}
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full w-fit">
-                <span className="text-purple-600 dark:text-purple-400 font-semibold text-sm">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-500/10 dark:to-pink-500/10 border border-purple-200 dark:border-purple-500/20 rounded-full w-fit shadow-sm shadow-purple-200/50 dark:shadow-none">
+                <span className="text-purple-700 dark:text-purple-400 font-semibold text-sm">
                   Use Case: Qualify
                 </span>
               </div>
@@ -203,8 +209,8 @@ export default function FunnelFeaturesSection() {
               transition={{ duration: 0.6 }}
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-teal-500/10 to-emerald-500/10 border border-teal-500/20 rounded-full w-fit">
-                <span className="text-teal-600 dark:text-teal-400 font-semibold text-sm">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-500/10 dark:to-emerald-500/10 border border-teal-200 dark:border-teal-500/20 rounded-full w-fit shadow-sm shadow-teal-200/50 dark:shadow-none">
+                <span className="text-teal-700 dark:text-teal-400 font-semibold text-sm">
                   Use Case: Track
                 </span>
               </div>
@@ -265,8 +271,8 @@ export default function FunnelFeaturesSection() {
               transition={{ duration: 0.6 }}
               className="space-y-6 min-h-screen flex flex-col justify-center py-24"
             >
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-500/20 rounded-full w-fit">
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-500/10 dark:to-green-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-full w-fit shadow-sm shadow-emerald-200/50 dark:shadow-none">
+                <span className="text-emerald-700 dark:text-emerald-400 font-semibold text-sm">
                   Use Case: Convert
                 </span>
               </div>
@@ -328,14 +334,15 @@ export default function FunnelFeaturesSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative flex items-center justify-center rounded-2xl overflow-hidden w-full"
               >
-                {/* Pixelated background layer */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/10 rounded-2xl"
-                     style={{
-                       backgroundImage: `
-                         repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 4px),
-                         repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 4px)
-                       `,
-                     }}
+                {/* Pixelated background layer with theme-aware styling */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-purple-100/40 to-blue-100/40 dark:from-purple-900/20 dark:to-blue-900/20 border border-purple-200/40 dark:border-purple-500/10 rounded-2xl shadow-xl shadow-purple-200/20 dark:shadow-none"
+                  style={{
+                    backgroundImage: `
+                      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(138,43,226,0.04) 3px, rgba(138,43,226,0.04) 4px),
+                      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(138,43,226,0.04) 3px, rgba(138,43,226,0.04) 4px)
+                    `,
+                  }}
                 />
 
                 {/* Funnel content with pixelation effect */}
@@ -349,7 +356,7 @@ export default function FunnelFeaturesSection() {
 
         {/* Mobile: Show funnel separately */}
         <div className="lg:hidden mt-16">
-          <div className="flex items-center justify-center bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-2xl border border-purple-500/10 p-8">
+          <div className="flex items-center justify-center bg-gradient-to-br from-purple-100/40 to-blue-100/40 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl border border-purple-200/40 dark:border-purple-500/10 p-8 shadow-lg shadow-purple-200/20 dark:shadow-none">
             <FunnelDiagram activeStage={activeStage} patchProgress={patchProgress} />
           </div>
         </div>
