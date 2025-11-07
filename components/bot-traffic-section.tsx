@@ -68,7 +68,7 @@ export default function BotTrafficSection() {
   };
 
   return (
-    <section className="py-20 px-4 bg-white dark:bg-black">
+    <section className="py-20 px-4 bg-neutral-50 dark:bg-black">
       <div className="w-full max-w-7xl mx-auto">
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -83,23 +83,23 @@ export default function BotTrafficSection() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#262C5B] dark:text-white leading-tight">
               Close The Door On 'Costly' Fake Traffic
             </h2>
-            <div className="space-y-4 text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+            <div className="space-y-4 text-base md:text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
               <p>
                 With A.I and black hat tactics are on the rise, knowing exactly where your traffic is coming from is as vital as ever.
               </p>
               <p>
-                Unfortunately, through our own research, on average, <span className="text-red-400 font-semibold">30% of traffic is fake</span>, whether that be human or bots.
+                Unfortunately, through our own research, on average, <span className="text-red-500 dark:text-red-400 font-semibold">30% of traffic is fake</span>, whether that be human or bots.
               </p>
-              <p className="text-xl md:text-2xl text-red-400 font-semibold">
+              <p className="text-xl md:text-2xl text-red-500 dark:text-red-400 font-semibold">
                 This means potentially 30% of your Ad budget is going up in smoke.
               </p>
               <p className="pt-2">
-                LeadsHook closes the door on bad traffic with <span className="text-cyan-400 font-semibold">inbuilt security features</span> that identify, flag, and re-route this traffic so you can adapt your Decision Tree on the fly.
+                LeadsHook closes the door on bad traffic with <span className="text-cyan-600 dark:text-cyan-400 font-semibold">inbuilt security features</span> that identify, flag, and re-route this traffic so you can adapt your Decision Tree on the fly.
               </p>
-              <p className="text-xl md:text-2xl text-white font-semibold pt-2">
+              <p className="text-xl md:text-2xl text-[#262C5B] dark:text-white font-semibold pt-2">
                 Take back your wasted Ad spend…
               </p>
-              <p className="text-base md:text-lg text-neutral-300">
+              <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-300">
                 And achieve higher conversions, unlike any other lead gen platform.
               </p>
             </div>
@@ -122,20 +122,20 @@ export default function BotTrafficSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className={`bg-neutral-800/50 rounded-xl p-4 md:p-6 border ${
+                  className={`rounded-xl p-4 md:p-6 border ${
                     index === 0
-                      ? "border-blue-500/30 bg-blue-500/5"
-                      : "border-neutral-700"
+                      ? "border-blue-500/30 bg-blue-500/10 dark:bg-blue-500/5"
+                      : "border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800/50"
                   }`}
                 >
-                  <p className={`text-xs md:text-sm mb-2 ${index === 0 ? "text-blue-400" : "text-neutral-400"}`}>
+                  <p className={`text-xs md:text-sm mb-2 ${index === 0 ? "text-blue-600 dark:text-blue-400" : "text-neutral-600 dark:text-neutral-400"}`}>
                     {stat.label}
                   </p>
                   <div className="flex items-end justify-between">
-                    <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
+                    <p className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white">{stat.value}</p>
                     <div
                       className={`flex items-center gap-1 text-xs md:text-sm font-medium ${
-                        stat.isPositive ? "text-green-400" : "text-red-400"
+                        stat.isPositive ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"
                       }`}
                     >
                       {stat.isPositive ? (
@@ -176,18 +176,18 @@ export default function BotTrafficSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 bg-gradient-to-br from-neutral-900 to-neutral-950 rounded-2xl p-6 md:p-8 border border-neutral-800"
+          className="mt-12 bg-gradient-to-br from-white to-neutral-100 dark:from-neutral-900 dark:to-neutral-950 rounded-2xl p-6 md:p-8 border border-neutral-300 dark:border-neutral-800 shadow-lg"
         >
           {/* Chart Header */}
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl font-semibold text-white">Bad Bot Traffic Rising</h3>
-            <div className="text-xs text-neutral-400 bg-red-500/10 border border-red-500/30 px-3 py-1 rounded-full">
+            <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white">Bad Bot Traffic Rising</h3>
+            <div className="text-xs text-red-700 dark:text-neutral-400 bg-red-500/20 dark:bg-red-500/10 border border-red-500/40 dark:border-red-500/30 px-3 py-1 rounded-full">
               📈 Growing Problem
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-neutral-400 mb-8">
+          <p className="text-neutral-600 dark:text-neutral-400 mb-8">
             Bad bot traffic has nearly doubled since 2015, costing advertisers billions in wasted ad spend and skewed analytics.
             Protect your funnel with LeadsHook's server-side tracking.
           </p>
@@ -197,7 +197,7 @@ export default function BotTrafficSection() {
             ref={chartRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative h-80 bg-gradient-to-b from-neutral-800/30 to-transparent rounded-xl p-6 border border-neutral-800/50 cursor-crosshair"
+            className="relative h-80 bg-gradient-to-b from-neutral-200/40 dark:from-neutral-800/30 to-transparent rounded-xl p-6 border border-neutral-300 dark:border-neutral-800/50 cursor-crosshair"
           >
             {/* Tooltip */}
             {hoveredPoint !== null && (
@@ -230,7 +230,7 @@ export default function BotTrafficSection() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="absolute top-6 bottom-10 w-px bg-neutral-600 pointer-events-none"
+                className="absolute top-6 bottom-10 w-px bg-neutral-400 dark:bg-neutral-600 pointer-events-none"
                 style={{
                   left: `${((hoveredPoint + 0.5) / chartData.length) * 100}%`,
                 }}
@@ -240,7 +240,7 @@ export default function BotTrafficSection() {
             {/* Y-axis grid lines */}
             <div className="absolute inset-6 flex flex-col justify-between">
               {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="border-t border-dashed border-neutral-700/50" />
+                <div key={i} className="border-t border-dashed border-neutral-300 dark:border-neutral-700/50" />
               ))}
             </div>
 
@@ -291,7 +291,7 @@ export default function BotTrafficSection() {
             </svg>
 
             {/* X-axis labels */}
-            <div className="absolute bottom-0 left-6 right-6 flex justify-between text-xs text-neutral-500 mt-2">
+            <div className="absolute bottom-0 left-6 right-6 flex justify-between text-xs text-neutral-600 dark:text-neutral-500 mt-2">
               {chartData.map((data) => (
                 <span key={data.month}>{data.month}</span>
               ))}

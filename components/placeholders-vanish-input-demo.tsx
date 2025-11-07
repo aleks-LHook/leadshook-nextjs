@@ -8,6 +8,8 @@ export function PlaceholdersAndVanishInputDemo() {
     "Ask LeadsHook to build a weight-loss quiz",
     "Ask LeadsHook add Google Analytics",
     "Ask Leadshook to enable phone verification",
+    "Ask LeadsHook to create a multi-step form",
+    "Ask LeadsHook to design an A/B test experiment",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -20,7 +22,7 @@ export function PlaceholdersAndVanishInputDemo() {
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       <PlaceholdersAndVanishInput
         placeholders={placeholders}
         onChange={handleChange}

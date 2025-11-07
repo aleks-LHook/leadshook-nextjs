@@ -5,8 +5,8 @@
 @layer base {
   :root {
     /* Light theme - Clean and modern with #262C5B navy primary */
-    --background: 0 0% 100%;
-    --foreground: 228 41% 25%; /* #262C5B converted to HSL */
+    --background: 0 0% 98%; /* Off-white background */
+    --foreground: 0 0% 20%; /* Darker text for better readability */
     --card: 0 0% 100%;
     --card-foreground: 228 41% 25%;
     --popover: 0 0% 100%;

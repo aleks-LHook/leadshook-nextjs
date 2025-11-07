@@ -179,8 +179,8 @@ export function PlaceholdersAndVanishInput({
   return (
     <form
       className={cn(
-        "w-full relative max-w-3xl mx-auto bg-[#faf9f6] dark:bg-zinc-900 rounded-2xl border border-neutral-200 dark:border-zinc-800 overflow-hidden transition-all duration-200",
-        "focus-within:border-neutral-300 dark:focus-within:border-zinc-700"
+        "w-full relative max-w-5xl mx-auto bg-white dark:bg-zinc-900 rounded-2xl border border-neutral-300 dark:border-zinc-800 overflow-hidden transition-all duration-200 shadow-lg",
+        "focus-within:border-neutral-400 dark:focus-within:border-zinc-700 focus-within:shadow-xl"
       )}
       onSubmit={handleSubmit}
     >
@@ -205,20 +205,20 @@ export function PlaceholdersAndVanishInput({
           ref={inputRef}
           value={value}
           className={cn(
-            "w-full px-5 pt-4 pb-3 bg-transparent text-neutral-900 dark:text-neutral-100 resize-none focus:outline-none text-base min-h-[60px] relative z-20",
+            "w-full px-6 pt-6 pb-4 bg-transparent text-neutral-900 dark:text-neutral-100 resize-none focus:outline-none text-lg min-h-[80px] relative z-20",
             animating && "text-transparent dark:text-transparent"
           )}
           rows={1}
           style={{
-            minHeight: "60px",
-            maxHeight: "200px",
+            minHeight: "80px",
+            maxHeight: "240px",
             overflowY: "auto",
           }}
         />
 
         {/* Animated Placeholder */}
         {!value && (
-          <div className="absolute top-4 left-5 pointer-events-none z-10">
+          <div className="absolute top-6 left-6 pointer-events-none z-10">
             <AnimatePresence mode="wait">
               <motion.p
                 initial={{
@@ -238,7 +238,7 @@ export function PlaceholdersAndVanishInput({
                   duration: 0.3,
                   ease: "linear",
                 }}
-                className="text-neutral-500 dark:text-neutral-500 text-base"
+                className="text-neutral-500 dark:text-neutral-500 text-lg"
               >
                 {placeholders[currentPlaceholder]}
               </motion.p>
@@ -248,7 +248,7 @@ export function PlaceholdersAndVanishInput({
       </div>
 
       {/* Bottom Toolbar */}
-      <div className="flex items-center justify-between px-3 pb-3 pt-1 relative z-20">
+      <div className="flex items-center justify-between px-4 pb-4 pt-2 relative z-20">
         {/* Left side buttons */}
         <div className="flex items-center gap-2">
           {/* Attach Button */}
