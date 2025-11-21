@@ -102,7 +102,7 @@ export function TopBar() {
             {/* Log in */}
             <a
               href="#login"
-              className="text-sm text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+              className="text-sm text-neutral-700 dark:text-[oklch(0.75_0.12_265)] hover:text-neutral-900 dark:hover:text-[oklch(0.85_0.15_265)] transition-colors"
             >
               Log in
             </a>
