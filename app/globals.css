@@ -112,6 +112,16 @@
   animation-direction: var(--animation-direction, forwards);
 }
 
+/* Aurora animation */
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
 /* Hide scrollbar */
 @layer utilities {
   .scrollbar-hide {
