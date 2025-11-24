@@ -23,7 +23,7 @@ export function HammerSection() {
           className="text-4xl md:text-6xl font-light text-center max-w-5xl mx-auto text-white"
           style={{ lineHeight: '1.3', fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
         >
-          Marketing tools should work like a hammer.
+          Stop Doing Work a Machine Can Handle
         </motion.h2>
 
         {/* Subheading - revealed on scroll */}
@@ -35,7 +35,7 @@ export function HammerSection() {
           className="text-2xl md:text-4xl font-light text-center max-w-4xl mx-auto text-white/90"
           style={{ lineHeight: '1.4', fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
         >
-          Pick it up. Use it. Get results.
+          Start doing what only you can do.
         </motion.p>
 
         {/* Two-column grid - Icon and Text */}
@@ -76,7 +76,7 @@ export function HammerSection() {
                 className="text-4xl md:text-6xl lg:text-7xl font-light text-center md:text-left text-white leading-tight"
                 style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
               >
-                LeadsHook is powered by Commander
+                Automate the Gruntwork
               </h2>
               <p className="text-lg md:text-xl font-light text-center md:text-left text-white/70"
                 style={{ lineHeight: '1.6', fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
@@ -100,7 +100,7 @@ export function HammerSection() {
               <p className="text-2xl md:text-4xl font-light text-white/80"
                 style={{ lineHeight: '1.6', fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
               >
-                Commander, an agent which navigates the chaotic ocean of data and marketing psychology.
+                Commander, an agent which processes marketing data and executes campaigns.
               </p>
             </motion.div>
 
@@ -115,7 +115,7 @@ export function HammerSection() {
               <p className="text-xl md:text-2xl font-light text-white/80"
                 style={{ lineHeight: '1.6', fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
               >
-                Built to eliminate the learning curve by handling building, testing, and optimization so you can focus on scaling revenue.
+                LeadsHook is powerful. It's also complicated. We built Commander to eliminate the learning curve so you can use that power without the complexity.
               </p>
               
               <motion.button

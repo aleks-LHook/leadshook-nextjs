@@ -3,13 +3,20 @@
 import { Cover } from "@/components/ui/cover";
 import { PlaceholdersAndVanishInputDemo } from "@/components/demos/placeholders-vanish-input-demo";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 export function CommanderHeroSection() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section className="relative flex flex-col items-center justify-start pt-24 pb-0 px-4 md:px-24 overflow-hidden h-[70vh] bg-[oklch(0.23_0.05_265)]">
       {/* Aurora effect */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
+        {mounted && <div
           className="after:animate-aurora pointer-events-none absolute -inset-[10px] opacity-50 blur-[10px] will-change-transform
           [background-image:repeating-linear-gradient(100deg,oklch(0.23_0.05_265)_0%,oklch(0.23_0.05_265)_7%,transparent_10%,transparent_12%,oklch(0.23_0.05_265)_16%),repeating-linear-gradient(100deg,oklch(0.30_0.08_265)_10%,oklch(0.35_0.10_260)_15%,oklch(0.32_0.09_270)_20%,oklch(0.28_0.07_265)_25%,oklch(0.30_0.08_265)_30%)]
           [background-size:300%,_200%] 
@@ -21,7 +28,7 @@ export function CommanderHeroSection() {
           after:mix-blend-difference 
           after:content-['']
           [mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,transparent_70%)]"
-        />
+        />}
       </div>
 
       {/* Grainy texture overlay */}
@@ -40,15 +47,26 @@ export function CommanderHeroSection() {
         className="mt-32 text-5xl md:text-8xl font-light text-center max-w-7xl mx-auto text-white"
         style={{ lineHeight: '1.2', fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
       >
-        Build customer journeys at warp speed
+        Build customer journeys
       </motion.h1>
+
+      {/* New tagline */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="mt-8 text-2xl md:text-4xl text-center text-white max-w-5xl mx-auto leading-relaxed"
+        style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
+      >
+        Your vision. AI speed. Total control.
+      </motion.p>
 
       {/* Subheading with fade-in */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="mt-12 text-xl md:text-3xl text-center text-white/90 max-w-5xl mx-auto leading-relaxed"
+        className="mt-12 text-lg md:text-2xl text-center text-white/90 max-w-5xl mx-auto leading-relaxed"
       >
         Generate leads by chatting with AI
       </motion.p>

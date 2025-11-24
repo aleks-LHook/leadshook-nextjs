@@ -65,13 +65,14 @@ export function CommanderFunnelSection() {
             className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-8 leading-tight"
             style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
           >
-            What Takes Teams Weeks, Commander Does in Minutes
+            Get Weeks of Work Done in Minutes <br />
+            <span className="text-2xl md:text-4xl lg:text-5xl">With You Guiding Every Decision</span>
           </h2>
           <p 
             className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed"
             style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
           >
-            Stop wrestling with tools and templates. Commander handles the building, testing, and optimization automatically.
+            Stop wrestling with tools and templates. Commander builds, tests, and optimizes with your guidance.
           </p>
         </motion.div>
 
@@ -98,7 +99,7 @@ export function CommanderFunnelSection() {
                 className="text-3xl md:text-5xl lg:text-6xl font-light text-white leading-tight"
                 style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", Times, serif' }}
               >
-                Commander Builds Landing Pages While You Focus on Your Business
+                Commander Builds Landing Pages
               </h3>
 
               <div className="space-y-6 text-white/80 text-lg md:text-xl leading-relaxed"
